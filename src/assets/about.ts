@@ -1,0 +1,20 @@
+export const jsonLines = [
+    '{',
+    '  "name": "Mayank Gulati",',
+    '  "age": 20,',
+    '  "nationality": "Indian",',
+    '  "skills": {',
+    '    "Python": ["Flask", "FastAPI"],',
+    '    "Typescript/Javascript": {',
+    '      "frontend": ["React", "Next.js", "React Native"],',
+    '      "backend": ["Node.js", "Express"]',
+    '    },',
+    '    "Databases": {',
+    '      "SQL": ["MySQL", "PostgreSQL"],',
+    '      "NoSQL": ["MongoDB", "Firestore"]',
+    '    },',
+    '    "DevOps": ["Docker", "Google Cloud Platform", "Firebase"],',
+    '    "Testing": ["Jest", "React Testing Library"]',
+    '  }',
+    '}'
+];
