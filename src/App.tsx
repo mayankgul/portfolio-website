@@ -15,7 +15,7 @@ const App = () => {
         updateScreenSize({
           isMobile: window.matchMedia("(max-width: 768px)").matches,
           isTablet: window.matchMedia(
-            "(min-width: 769px) and (max-width: 1024px)"
+            "(min-width: 769px) and (max-width: 1530px)"
           ).matches,
         })
       );

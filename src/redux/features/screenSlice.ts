@@ -8,7 +8,7 @@ interface ScreenState {
 
 const initialState: ScreenState = {
   isMobile: window.matchMedia("(max-width: 768px)").matches,
-  isTablet: window.matchMedia("(min-width: 769px) and (max-width: 1024px)")
+  isTablet: window.matchMedia("(min-width: 769px) and (max-width: 1530px)")
     .matches,
 };
 
