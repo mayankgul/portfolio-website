@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store.ts";
 // import { toggleTheme } from "../redux/features/themeSlice.ts";
-import { github, linkedin } from "../assets/links.ts";
-import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import {github, linkedin, youtube} from "../assets/links.ts";
+import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
 
 const menuItems = [
   { title: "Home", path: "/" },
@@ -131,7 +131,7 @@ const Navbar = () => {
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-400 transition-colors"
+                className="hover:text-purple-400 transition-colors"
               >
                 <AiFillGithub size={25} />
               </a>
@@ -143,6 +143,15 @@ const Navbar = () => {
                 className="hover:text-blue-400 transition-colors"
               >
                 <AiFillLinkedin size={25} />
+              </a>
+
+              <a
+                  href={youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-400 transition-colors"
+              >
+                <AiFillYoutube size={32} />
               </a>
             </div>
 

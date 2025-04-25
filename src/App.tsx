@@ -1,6 +1,6 @@
 import "./globals.css";
 import Navbar from "./components/Navbar.tsx";
-import HeroSection from "./components/Hero.tsx";
+import { HeroSection } from "./components/HomePage";
 import { Provider as ReduxProvider, useDispatch } from "react-redux";
 import { AppDispatch, store } from "./redux/store.ts";
 import { useEffect } from "react";
@@ -25,7 +25,7 @@ const App = () => {
     window.addEventListener("resize", handleResize);
 
     // Initial call
-    // handleResize();
+    handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
