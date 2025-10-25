@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -7,10 +7,11 @@ const config: Config = {
       fontFamily: {
         sans: ["Inter", "sans-serif"], // Default body font
         poppins: ["Poppins", "sans-serif"], // Custom heading font
+        proxima: ["Proxima Nova", "Inter", "sans-serif"], // Added Proxima Nova
       },
     },
   },
   plugins: [],
-}
+};
 
-export default config
+export default config;

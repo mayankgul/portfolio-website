@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { memo } from "react";
 
-import useTypewriter from "../../hooks/useTypewriter.ts";
-import { jsonLines } from "../../assets/about.ts";
+import useTypewriter from "../../../hooks/useTypewriter.ts";
+import { jsonLines } from "../../../assets/about.ts";
 
 const JsonAnimation = () => {
   const typedLines = useTypewriter(jsonLines, 1.5);

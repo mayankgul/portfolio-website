@@ -1,9 +1,13 @@
-import "./globals.css";
-import Navbar from "./components/Navbar.tsx";
-import { HeroSection } from "./components/HomePage";
-import { Provider as ReduxProvider, useDispatch } from "react-redux";
-import { AppDispatch, store } from "./redux/store.ts";
 import { useEffect } from "react";
+import { Provider as ReduxProvider, useDispatch } from "react-redux";
+import "./globals.css";
+
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HomePage/HeroSection";
+import TestimonialsSection from "./components/HomePage/TestimonialsSection";
+import ProjectSection from "./components/HomePage/ProjectSection";
+
+import { AppDispatch, store } from "./redux/store.ts";
 import { updateScreenSize } from "./redux/features/screenSlice.ts";
 
 const App = () => {
@@ -36,6 +40,8 @@ const App = () => {
     <>
       <Navbar />
       <HeroSection />
+      <TestimonialsSection />
+      {/* <ProjectSection /> */}
     </>
   );
 };

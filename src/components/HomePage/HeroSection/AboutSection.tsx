@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { ArrowRight } from "lucide-react";
 import { memo } from "react";
 
-import { RootState } from "../../redux/store.ts";
+import { RootState } from "../../../redux/store.ts";
 
 const AboutSection = () => {
   // managing screen size state

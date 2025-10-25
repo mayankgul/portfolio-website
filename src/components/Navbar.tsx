@@ -5,8 +5,7 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store.ts";
-// import { toggleTheme } from "../redux/features/themeSlice.ts";
-import {github, linkedin, youtube} from "../assets/links.ts";
+import { github, linkedin, youtube } from "../assets/links.ts";
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
 
 const menuItems = [
@@ -146,10 +145,10 @@ const Navbar = () => {
               </a>
 
               <a
-                  href={youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-red-400 transition-colors"
+                href={youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-red-400 transition-colors"
               >
                 <AiFillYoutube size={32} />
               </a>

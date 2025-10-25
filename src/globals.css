@@ -1,1 +1,79 @@
 @import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font definitions */
+@font-face {
+  font-family: "PlaywriteAUSA";
+  src: url("/src/assets/fonts/PlaywriteAUSA-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PlaywriteAUSA";
+  src: url("/src/assets/fonts/PlaywriteAUSA-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PlaywriteAUSA";
+  src: url("/src/assets/fonts/PlaywriteAUSA-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PlaywriteAUSA";
+  src: url("/src/assets/fonts/PlaywriteAUSA-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* Proxima Nova font definitions */
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/src/assets/fonts/ProximaNova-Regular.woff2") format("woff2"),
+    url("/src/assets/fonts/ProximaNova-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/src/assets/fonts/ProximaNova-Light.woff2") format("woff2"),
+    url("/src/assets/fonts/ProximaNova-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/src/assets/fonts/ProximaNova-Bold.woff2") format("woff2"),
+    url("/src/assets/fonts/ProximaNova-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom utility class to hide scrollbars but keep functionality */
+@layer utilities {
+  .scrollbar-hide {
+    /* For Firefox */
+    scrollbar-width: none;
+    /* For Chrome, Safari, and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* Custom smooth scrolling for snap containers */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}

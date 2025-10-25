@@ -3,27 +3,30 @@ import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
-import { RootState } from "../../redux/store.ts";
-import BackgroundImage from "../../assets/images/hero-bg.jpg";
+import { RootState } from "../../../redux/store.ts";
+import BackgroundImage from "../../../assets/images/hero-bg.jpg";
 import {
   GREETING_INTERVAL_MS,
   GREETINGS,
   TECH_LOGOS,
   TABLET_TECH_LOGOS,
-} from "./constants";
+  MOBILE_TECH_LOGOS,
+} from "./constants.ts";
 
-import HeroGreeting from "./HeroGreeting";
-import AboutSection from "./AboutSection";
-import JsonAnimation from "./JsonAnimation";
-import TechSkills from "./TechSkills";
-import TabletTechSkills from "./TabletTechSkills";
-import HeroBackground from "./HeroBackground";
+import HeroGreeting from "./HeroGreeting.tsx";
+import AboutSection from "./AboutSection.tsx";
+import JsonAnimation from "./JsonAnimation.tsx";
+import TechSkills from "./TechSkills.tsx";
+import TabletTechSkills from "./TabletTechSkills.tsx";
+import MobileSkills from "./MobileSkills.tsx";
+import HeroBackground from "./HeroBackground.tsx";
 
-export const HeroSection = () => {
+const HeroSection = () => {
   // managing screen size state
   const { isMobile, isTablet } = useSelector(
     (state: RootState) => state.screen
   );
+  const isDesktop = !isMobile && !isTablet;
 
   // logic to loop between greetings
   const [greetingIndex, setGreetingIndex] = useState<number>(0);
@@ -44,14 +47,15 @@ export const HeroSection = () => {
         className={clsx("relative w-full", {
           "max-w-sm mx-auto": isMobile,
           "max-w-md text-left": isTablet,
-          "text-left": !isMobile && !isTablet,
+          "text-left": isDesktop,
         })}
       >
         <HeroGreeting greetings={GREETINGS} greetingIndex={greetingIndex} />
         <AboutSection />
+        {isMobile && <MobileSkills logos={MOBILE_TECH_LOGOS} />}
       </div>
     ),
-    [isMobile, isTablet, greetingIndex]
+    [isMobile, isTablet, isDesktop, greetingIndex]
   );
 
   // Memoize the tablet content
@@ -63,38 +67,45 @@ export const HeroSection = () => {
   // Memoize the desktop content section
   const desktopContent = useMemo(
     () =>
-      !isMobile &&
-      !isTablet && (
+      isDesktop && (
         <>
           <motion.div className="flex-1 z-10 ml-10">
             <JsonAnimation />
           </motion.div>
         </>
       ),
-    [isMobile, isTablet]
+    [isDesktop]
   );
 
   // Separate TechSkills for desktop to ensure it's positioned correctly
   const desktopTechSkills = useMemo(
-    () => !isMobile && !isTablet && <TechSkills logos={TECH_LOGOS} />,
-    [isMobile, isTablet]
+    () => isDesktop && <TechSkills logos={TECH_LOGOS} />,
+    [isDesktop]
   );
 
   return (
     <section
-      className={clsx("relative flex flex-col justify-center text-white", {
-        "h-150 items-center px-8 text-center": isMobile,
-        "h-170 items-start px-12": isTablet,
-        "h-200 items-start px-12": !isMobile && !isTablet,
-      })}
+      className={clsx(
+        "relative flex flex-col justify-center text-white overflow-hidden",
+        {
+          "h-150 items-center px-8 text-center": isMobile,
+          "h-170 items-start px-12": isTablet,
+          "h-screen items-start px-12": isDesktop,
+        }
+      )}
+      // On desktop, use 80vh height to match background and allow scrolling
+      style={{
+        height: isDesktop ? "80vh" : undefined,
+        minHeight: isDesktop ? undefined : "100vh",
+      }}
     >
       <HeroBackground backgroundImage={BackgroundImage} />
 
       <div
-        className={clsx("flex flex-row flex-1", {
+        className={clsx("flex flex-row flex-1 z-10", {
           "mt-32": isMobile,
           "mt-40": isTablet,
-          "mt-45": !isMobile && !isTablet,
+          "mt-45": isDesktop,
         })}
       >
         {contentSection}
@@ -105,3 +116,5 @@ export const HeroSection = () => {
     </section>
   );
 };
+
+export default HeroSection;

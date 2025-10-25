@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import clsx from "clsx";
 import { memo } from "react";
 
-import { RootState } from "../../redux/store.ts";
-import { SKILLS } from "./constants";
+import { RootState } from "../../../redux/store.ts";
+import { SKILLS } from "./constants.ts";
 
 interface HeroGreetingProps {
   greetings: string[];
