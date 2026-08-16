@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const useTypewriter = (lines: string[], speed = 20) => {
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
